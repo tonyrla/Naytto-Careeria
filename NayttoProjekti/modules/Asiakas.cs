@@ -48,5 +48,9 @@ namespace NayttoProjekti
             info.AddValue("Osoite", this.osoite);
             info.AddValue("Lisatietoja", this.lisaTietoja);
         }
+        public override string ToString()
+        {
+            return "ID: " + id + " Nimi: " + nimi + " Puh: " + puhelinNumero + "\n\tEmail: " + email + " Osoite: " + osoite + "\n\tLisätietoja: " + lisaTietoja;
+        }
     }
 }

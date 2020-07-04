@@ -50,7 +50,7 @@ namespace NayttoProjekti
     {
         static void Main(string[] args)
         {
-            new Kauppa("Liskokauppa").run();
+            new Valikot("Liskokauppa").run();
         }
 
     }

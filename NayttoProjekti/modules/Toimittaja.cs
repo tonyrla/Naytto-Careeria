@@ -41,6 +41,10 @@ namespace NayttoProjekti
             info.AddValue("PuhNum", this.puhelinNumero);
             info.AddValue("Email", this.email);
         }
+        public override string ToString()
+        {
+            return $"[ ID: {id} ] Nimi: {nimi} PuhelinNum: {puhelinNumero} Email: {email}";
+        }
         public int ToimittajaId => id;
 
         public string Nimi { get => nimi; set => nimi = value; }

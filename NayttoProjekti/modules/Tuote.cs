@@ -22,6 +22,7 @@ namespace NayttoProjekti
         decimal hinta_sisaan;
         decimal hinta_ulos;
         TuoteEra era;
+        public int Saldo { get => saldo; set => saldo = value; }
 
         public Tuote(string nimi, Tuoteryhma tuoteRyhma, int saldo, VarastoTila varastoTila, int hyllyPaikka, decimal hinta_sisaan, decimal hinta_ulos, TuoteEra era)
         {
@@ -35,6 +36,22 @@ namespace NayttoProjekti
             this.hinta_ulos = hinta_ulos;
             this.era = era;
             counter++;
+        }
+        public int Maara { get => saldo; }
+        public decimal HintaUlos { get => hinta_ulos; }
+        public string Nimi { get => nimi; }
+        public Tuote(Tuote t)
+        {
+            this.id = t.id;
+            this.nimi = t.nimi;
+            this.tuoteRyhma = t.tuoteRyhma;
+            this.saldo = t.saldo;
+            this.varastoTila = t.varastoTila;
+            this.hyllyPaikka = t.hyllyPaikka;
+            this.hinta_sisaan = t.hinta_sisaan;
+            this.hinta_ulos = t.hinta_ulos;
+            this.era = t.era;
+
         }
         public Tuote(SerializationInfo info, StreamingContext ctxt)
         {
@@ -69,50 +86,10 @@ namespace NayttoProjekti
         {
             return "[" + id + " | " + nimi + " | " + tuoteRyhma + "] " + "Saldo: " + saldo + " Sijainti: " + varastoTila + " - Hylly " + hyllyPaikka + "\n\tOsto= " + @hinta_sisaan.ToString("C", CultureInfo.GetCultureInfo("fi-FI")) + ", Myynti= " + @hinta_ulos.ToString("C", CultureInfo.GetCultureInfo("fi-FI")) + "\n\tErätiedot: " + era;
         }
-        public static void printList(List<NayttoProjekti.Tuote> lista)
+        public string asiakasString()
         {
-            if (lista.Count <= 0)
-                return;
-            Console.WriteLine("[ ID | NIMI | RYHMÄ ]");
-            int iter = 0;
-            while (true)
-            {
-                if (iter >= lista.Count)
-                {
-                    Console.WriteLine("Paina mitä tahansa näppäintä palataksesi");
-                    Console.ReadKey(true);
-                    return;
-                }
-                for (int i = iter; iter < lista.Count; i++)
-                {
-                    Console.WriteLine(lista[i].ToString() + "\n");
-                    iter++;
-                    if (iter % 5 == 0)
-                    {
-                        
-                        Console.WriteLine();
-                        Console.WriteLine("*** Jatketaanko tulostusta? ***");
-                        Console.WriteLine();
-                        Console.WriteLine("J)atka listan tulostusta");
-                        Console.WriteLine("P)alaa takaisin\n");
-                    kysy:
-                        ConsoleKey key = Console.ReadKey(true).Key;
-                        switch (key)
-                        {
-                            case ConsoleKey.P:
-                                {
-                                    return;
-                                }
-                            case ConsoleKey.J:
-                                {
-                                    Console.WriteLine();
-                                    continue;
-                                }
-                            default: goto kysy;
-                        }
-                    }
-                }
-            }
+
+            return "[" + id + " | " + nimi + " | Erä: " + era.Era_Numero + "] " + "Määrä: " + saldo + " Hinta/me: " + @hinta_ulos.ToString("C", CultureInfo.GetCultureInfo("fi-FI")) + " Yhteensä: " + saldo*hinta_ulos;
         }
 
         

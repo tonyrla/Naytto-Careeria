@@ -13,6 +13,7 @@ namespace NayttoProjekti
         readonly int era_numero;
         DateTime saapumis_paiva;
         Toimittaja toimittaja;
+        public int Era_Numero { get => era_numero; }
 
         public TuoteEra(DateTime saapumis_paiva, Toimittaja toimittaja)
         {
