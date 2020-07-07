@@ -10,6 +10,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="NStack">
+      <HintPath>res\TerminalGUI\NStack.dll</HintPath>
+    </Reference>
+    <Reference Include="Terminal.Gui">
+      <HintPath>..\..\..\Terminal.Gui.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="res\Asiakkaat.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

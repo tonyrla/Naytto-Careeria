@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-
+using NayttoProjekti.modules;
 /*
  * Tekstipohjainen ensimmäisen vaiheen prototyyppi moduulipohjaisesta varastonhallintajärjestelmästä, jossa voidaan tarpeen mukaan lisätä toiminnallisuutta helposti.
  * 
@@ -50,7 +50,8 @@ namespace NayttoProjekti
     {
         static void Main(string[] args)
         {
-            new Valikot("Liskokauppa").run();
+            new TerminalGUI().RunGUI();
+            //new Valikot("Liskokauppa").run();
         }
 
     }
