@@ -33,6 +33,7 @@ namespace NayttoProjekti
         static void Main(string[] args)
         {
             //Luodaan uusi Valikot-olio antamalla "Kaupalle" nimi, ja käynnistetään ohjelman main loop.
+            //Koska luokkaa ei käytetä sen enempää, niin oliota ei tarvitse asettaa muuttujaan.
             new Valikot("Liskokauppa").run();
 
             //Graafisen terminaalin käynnistys, tätä en ole testaamista enempää kehittänyt tätä projektia varten.
