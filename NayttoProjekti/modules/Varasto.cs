@@ -10,11 +10,14 @@ using System.Text;
 
 namespace NayttoProjekti
 {
-    //Varasto-luokka pitää sisällään toiminnallisuuden moduulien hallintaan ja sisällön muokkaamiseen
-    //
-    //  GUI/UI rework vaiheessa nämä kaikki kyselyt tullaan poistamaan ja tämä kaikki hoidetaan forms tyylisesti tietokannan kanssa.
-    //  Tällä hetkellä tietueen lisääminen, poistaminen ja muokkaaminen vaatii ~50 riviä koodia per osuus, terminaali GUIn kanssa pystyn refaktoroimaan sen niin että pärjäämme kaikkineen puolella tuosta.
-
+    /* Varasto-luokka pitää sisällään toiminnallisuuden lisäyksiin, poistoihin ja tulostuksiin. 
+    * Tämä on "logiikan" selkäranka.
+    *
+    *  Käyttöliittymästä johtuen aikamoista tekstihirviötä.
+    *
+    *  GUI/UI rework vaiheessa nämä kaikki kyselyt tullaan poistamaan ja tämä kaikki hoidetaan forms tyylisesti tietokannan kanssa.
+    *  Tällä hetkellä tietueen lisääminen, poistaminen ja muokkaaminen vaatii ~50 riviä koodia per osuus, terminaali GUIn kanssa pystyn refaktoroimaan sen niin että pärjäämme kaikkineen puolella tuosta.
+    */
     class Varasto
     {
         List<Tuote> tuotteet;
@@ -184,7 +187,7 @@ namespace NayttoProjekti
         //Tilauksen lisääminen
         //  Kysytään käyttäjältä myyjän ID, toimituspäivä, tuotteet ja asiakas
 
-        // Tuotteiden lisäämiseen käytetään tulostaLista-methodis joka vaatii parametreiksi tyyppivapaan listan, boolean-arvon poistamista varten, boolean arvon myyntiä varten
+        // Tuotteiden lisäämiseen käytetään tulostaLista-methodia joka vaatii parametreiksi tyyppivapaan listan, boolean-arvon poistamista varten, boolean arvon myyntiä varten
         internal void lisaaTilaus()
         {
             int myyjaId;
@@ -393,7 +396,7 @@ namespace NayttoProjekti
             return t;
         }
 
-        //Tyyppivapaalta listalta tapahtuva olion poisto indeksin mukaan
+        //Tyyppivapaalta listalta tapahtuva olion poisto indeksin mukaan ja myynnin ollessa kyseessä, tuotteen palauttaminen varastoon
         private void poistaListasta<T>(List<T> lista, int indeksi = -1)
         {
             Console.Clear();

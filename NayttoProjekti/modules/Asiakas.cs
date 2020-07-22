@@ -2,8 +2,8 @@
 using System.Runtime.Serialization;
 
 /*
- * 
- * 
+ * Tietorakenne Asiakas-oliota varten
+ * Ei sisällä muuta toiminnallisuutta kuin serialisoinnin ja tulostuksessa käytettävän merkkijonon.
  */
 namespace NayttoProjekti
 {

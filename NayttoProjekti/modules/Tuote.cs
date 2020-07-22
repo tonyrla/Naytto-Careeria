@@ -7,8 +7,12 @@ using System.Runtime.Serialization;
 using System.Text;
 
 /*
- * 
- * 
+ * Tietorakenne Tuote-oliota varten
+ * Tätä käytetään myynnissä ja varastoinnissa.
+ *
+ * Ei sisällä muuta toiminnallisuutta kuin serialisoinnin ja tulostuksessa käytettävän merkkijonon.
+ *
+ * Sisältää kaksi tulostus toimintoa, joista toinen on lyhennetty versio asiakkaalle tulostettaviin listoihin.
  */
 
 namespace NayttoProjekti

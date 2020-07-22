@@ -9,8 +9,8 @@ namespace NayttoProjekti
      *      Tämä poistetaan kun kehitän terminaali-guin.
      */
 
-    // Tällä hetkellä moduulien vaihtamiset hoidetaan Enumien kautta, luettavuuden ja ymmärtämisen takia.
-    //      Tulevaisuudessa tämä tulee tapahtumaan skripteillä, joissa moduulien logiikka tulee olemaan ja itse ohjelma tulee vain hallitsemaan yhteyksiä, tietokantoja jne.
+    // Tällä hetkellä moduulien vaihtamiset hoidetaan käyttämällä enum tyyppiä luettavuuden ja ymmärtämisen takia.
+    //      Tulevaisuudessa tämä tulee tapahtumaan skripteillä, joissa moduulien logiikka tulee olemaan ja itse ohjelma tulee vain hallitsemaan yhteyksiä, tietokantoja ja käyttöliittymää.
     enum Tuoteryhma
     {
         RuokaHyonteiset,
@@ -36,13 +36,13 @@ namespace NayttoProjekti
         Toimittajanakyma,
         Asiakasnakyma
     }
-    class Valikot
+    class Kayttoliittyma
     {
         string nimi;
         Varasto liskoVarasto;
         Moduuli nakyma;
         readonly Dictionary<Moduuli, List<string>> teksti; 
-        public Valikot(string nimi)
+        public Kayttoliittyma(string nimi)
         {
             liskoVarasto = new Varasto();
             this.nimi = nimi;
@@ -95,7 +95,7 @@ namespace NayttoProjekti
         //run-methodi pitää sisällään ohjelman pyörimiseen vaadittavan toistolausekkeen, joka vaihtaa näkymiä ja lopettaa ohjelman toistamisen.
         public void run()
         {
-            //Looppi pyörittää moduuleita 'nakyma' muuttujaan asetetun arvon perusteella, joka tulee mooduleissa valittujen funktioiden palautusarvona
+            //Looppi pyörittää moduuleita 'nakyma' muuttujaan asetetun arvon perusteella, joka tulee mooduuleissa valittujen funktioiden palautusarvona
 
             while (true)
             {
@@ -122,11 +122,9 @@ namespace NayttoProjekti
          * Valikoissa tulostetaan vaihtoehdot mitä voi käyttää, ja epäkelvon napin painallus/vaihtoehdon valinta palauttaa logiikan takaisin vaiheeseen jossa luetaan käyttäjältä napin painallusta.
          *      Tulevaisuudessa tämä olisi tarkoitus hoitaa esimerkiksi LUA skripteillä, jotta modulaarisuus olisi mahdollisimman ongelmavapaa toteuttaa ja ei vaatisi jatkuvasti lähdekoodin kääntämistä.
          * 
-         * paaNakyma näyttää mitä moduuleita on käytössä, ja siirtymällä moduuliin saa listauksen moduulin toiminnoista.
+         * paaNakyma näyttää mitä moduuleita on käytettävissä, ja siirtymällä moduuliin saa listauksen moduulin toiminnoista.
          *      Toiminnot olisi myös tarkoitus hoitaa skriptikielellä modulaarisuutta ajatellen.
-         * Tämän saisi kompaktimmaksi sijoittamalla moduulien herättelyn esim. dictionaryyn
-         * Dictionary<Moduuli, Func<Moduuli>>
-         * 
+         * Tämän saisi kompaktimmaksi sijoittamalla moduulien herättelyn esim. dictionaryyn ( Dictionary<Moduuli, Func<Moduuli>> ), mutta ymmärettävyyden kannalta se on parempi näin. Toistoa tulee.
          */
 
         Moduuli paaNakyma()
