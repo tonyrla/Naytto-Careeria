@@ -1,9 +1,9 @@
-# Naytto-Careeria
-Varastonhallintasovellus
+#Varastonhallintasovellus - Careeria Ohjelmoinnin perusteet C#
 ========================
 
 Sovelluksen toiminta perustuu tekstipohjaiseen käyttöliittymään joka kyselee käyttäjältä mihin moduuliin siirrytään työskentelemään ja moduulien sisällä taas kysellään mitä toimintoja käytetään.
 Sovelluksessa voidaan lisätä, poistaa ja listata tuotteita varastossa, sekä suorittaa joitain myyntiin ja tavarantoimittajiin liittyviä toimintoja.
+
 
 Käyttöliittymä toimii pyyhkimällä konsolin jokaisen toiminnon laukaisemisen yhteydessä ja listaa käytettävissä olevat toiminnot tai moduulit käyttäjälle, näinollen pitäen käyttöliittymän siistinä.
 
