@@ -8,6 +8,19 @@ namespace NayttoProjekti
      *      Valikoiden esitys hoidetaan string-listoilta, joitan ajan printModule-methodin läpi jossa (ei toimi) tekstin omaavat toiminnot värjätään punaisella.
      *      Tämä poistetaan kun kehitän terminaali-guin.
      */
+
+    // Tällä hetkellä moduulien vaihtamiset hoidetaan Enumien kautta, luettavuuden ja ymmärtämisen takia.
+    //      Tulevaisuudessa tämä tulee tapahtumaan skripteillä, joissa moduulien logiikka tulee olemaan ja itse ohjelma tulee vain hallitsemaan yhteyksiä, tietokantoja jne.
+    enum Moduuli
+    {
+        Lopeta,
+        Paanakyma,
+        Varastonakyma,
+        Myyntinakyma,
+        Ostonakyma,
+        Toimittajanakyma,
+        Asiakasnakyma
+    }
     class Valikot
     {
         string nimi;
@@ -30,7 +43,7 @@ namespace NayttoProjekti
                 $"*** {nimi} - Varastonhallinta - Varastonäkymä ***\n\n\n",
                 "T)uotteiden listaus".PadRight(40, ' '),"L)isää tuote\n",
                 "P)oista tuote".PadRight(40, ' '),"N)äytä tuotteen tiedot (Ei toimi)\n",
-                "K)uittaa tuotteet varastoon(Ei toimi)".PadRight(40, ' '), "S)aldon päivitys\n",
+                "K)uittaa tuotteet varastoon(Ei toimi)".PadRight(40, ' '), "S)aldon päivitys(Ei toimi)\n",
                 "\n\n\nA)lkuun"});
             teksti.Add(Moduuli.Asiakasnakyma, new List<String>()
             {
@@ -64,6 +77,7 @@ namespace NayttoProjekti
 
         }
 
+        //run-methodi pitää sisällään ohjelman pyörimiseen vaadittavan toistolausekkeen, joka vaihtaa näkymiä ja lopettaa ohjelman toistamisen.
         public void run()
         {
             //Looppi pyörittää moduuleita 'nakyma' muuttujaan asetetun arvon perusteella, joka tulee mooduleissa valittujen funktioiden palautusarvona

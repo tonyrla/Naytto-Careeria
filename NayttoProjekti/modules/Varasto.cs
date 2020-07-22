@@ -35,6 +35,8 @@ namespace NayttoProjekti
         {
             return tilaukset.Select(x => x.Value).ToList();
         }
+
+        //Tilauksen poistaminen tietokannasta tilauksen id:n mukaan
         public void RemoveTilaus(int id)
         {
             var toRemove = tilaukset.Where(pair => pair.Value.TilausId == id)
@@ -47,6 +49,8 @@ namespace NayttoProjekti
                     tilaukset.Remove(key);
             }
         }
+
+        //Tietokantaan tallennettujen keräilylistojen tulostus
         public void tulostaKerailyListat()
         {
             List<string> tilaukset = new List<string>();
@@ -106,7 +110,10 @@ namespace NayttoProjekti
 
         }
 
-        //Tämä vaihe tullaan tekemään terminaali-ikkunassa samaan tapaan kuin kaavakkeet täytetään, tietokannasta tulevilla ehdotuksilla.
+        //Tuotteen lisäys
+        //  Kysytään käyttäjältä tuotteelle nimi, tuoteryhmä, määrä, sijainti varastossa ja hinnat. Jos nimi löytyy jo varastosta, estetään tuotteen lisääminen.
+
+        //  Tämä vaihe tullaan tekemään terminaali-ikkunassa samaan tapaan kuin kaavakkeet täytetään, tietokannasta tulevilla ehdotuksilla.
         //  Tähän tapaan, mutta 90-luvun BBS-purkki tyylisellä terminaalikäyttöliittymällä: https://www.c-sharpcorner.com/UploadFile/deepak.sharma00/autosuggest-textbox-from-database-column-in-windows-forms/
         //  Siihen saakka kunnes aloitan terminaali UI:n rakentamisen ja tietokantojen rakentamisen, kaikki logiikka tulee olemaan koodihirviötä.
         internal void lisaaTuote()
@@ -174,9 +181,12 @@ namespace NayttoProjekti
             tuotteet.Add(new Tuote(nimi, tuoteRyhma, saldo, varastoTila, hyllyPaikka, hinta_sisaan, hinta_ulos, era));
         }
 
+        //Tilauksen lisääminen
+        //  Kysytään käyttäjältä myyjän ID, toimituspäivä, tuotteet ja asiakas
+
+        // Tuotteiden lisäämiseen käytetään tulostaLista-methodis joka vaatii parametreiksi tyyppivapaan listan, boolean-arvon poistamista varten, boolean arvon myyntiä varten
         internal void lisaaTilaus()
         {
-            //(int myyjaId, Asiakas asiakas, List<Tuote> myydytTuotteet, DateTime pvm)
             int myyjaId;
             Asiakas asiakas;
             List<Tuote> myydytTuotteet;
@@ -197,6 +207,8 @@ namespace NayttoProjekti
             
 
         }
+
+        //Toimittajan lisääminen tietokantaan
         internal void lisaaToimittaja()
         {
             Console.Clear();
@@ -213,6 +225,8 @@ namespace NayttoProjekti
             email = Console.ReadLine();
             tavaranToimittajat.Add(new Toimittaja(nimi, puh, email));
         }
+
+        //Asiakkaan valinta tietokannasta
         private Asiakas valitseAsiakas()
         {
             //Kuinka monta tulostetaan, ja numeroilla tehtävän poiston hallinta
@@ -364,7 +378,9 @@ namespace NayttoProjekti
                 indeksi = indeksinLaskuri;
             }
         }
-        //Tuotteen myynti vähentää saldoa ja hyväksyttävä myyntimäärä maksimissaan se mitä on saldoilla
+
+        //Tuotteen poisto tyyppivapaalta listalta indeksin mukaan
+        //  Tuotteen myynti vähentää saldoa ja hyväksyttävä myyntimäärä maksimissaan se mitä on saldoilla
         private Tuote myyListasta(List<Tuote> lista, int numero)
         {
             int maara = 0;
@@ -377,6 +393,7 @@ namespace NayttoProjekti
             return t;
         }
 
+        //Tyyppivapaalta listalta tapahtuva olion poisto indeksin mukaan
         private void poistaListasta<T>(List<T> lista, int indeksi = -1)
         {
             Console.Clear();

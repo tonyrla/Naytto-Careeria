@@ -4,6 +4,10 @@ using System.Diagnostics.Tracing;
 using System.Runtime.Serialization;
 using System.Text;
 
+/*
+ * 
+ * 
+ */
 namespace NayttoProjekti
 {
     [Serializable()]
