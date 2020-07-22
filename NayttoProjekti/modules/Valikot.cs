@@ -11,6 +11,21 @@ namespace NayttoProjekti
 
     // Tällä hetkellä moduulien vaihtamiset hoidetaan Enumien kautta, luettavuuden ja ymmärtämisen takia.
     //      Tulevaisuudessa tämä tulee tapahtumaan skripteillä, joissa moduulien logiikka tulee olemaan ja itse ohjelma tulee vain hallitsemaan yhteyksiä, tietokantoja jne.
+    enum Tuoteryhma
+    {
+        RuokaHyonteiset,
+        LisaRavinteet,
+        Koristeet,
+        Lemmikit,
+        Tuntematon
+    }
+    enum VarastoTila
+    {
+        Jaakaappi,
+        Kuivatila,
+        Halli,
+        Tuntematon
+    }
     enum Moduuli
     {
         Lopeta,

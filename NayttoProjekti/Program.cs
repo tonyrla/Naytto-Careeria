@@ -27,33 +27,16 @@
 
 
 namespace NayttoProjekti
-{
-    enum Tuoteryhma
-    {
-        RuokaHyonteiset,
-        LisaRavinteet,
-        Koristeet,
-        Lemmikit,
-        Tuntematon
-    }
-    enum VarastoTila
-    {
-        Jaakaappi,
-        Kuivatila,
-        Halli,
-        Tuntematon
-    }
-
-    
+{    
     class Program
     {
         static void Main(string[] args)
         {
-            //Graafisen terminaalin käynnistys, tätä en ole testaamista enempää kehittänyt tätä projektia varten.
-            //new TerminalGUI().RunGUI();
-
             //Luodaan uusi Valikot-olio antamalla "Kaupalle" nimi, ja käynnistetään ohjelman main loop.
             new Valikot("Liskokauppa").run();
+
+            //Graafisen terminaalin käynnistys, tätä en ole testaamista enempää kehittänyt tätä projektia varten.
+            //new TerminalGUI().RunGUI();
         }
 
     }
