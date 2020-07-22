@@ -37,7 +37,6 @@ namespace NayttoProjekti
                 counter = id + 1;
         }
 
-        //Serialization function.
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
             info.AddValue("Id", this.id);

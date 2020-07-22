@@ -66,7 +66,7 @@ namespace NayttoProjekti
                 sb.Append("\n\n");
                 foreach (Tuote t in m.TilatutTuotteet)
                 {
-                    kokonaisHinta += t.HintaUlos * t.Maara;
+                    kokonaisHinta += t.HintaUlos * t.Saldo;
                     sb.Append(t.asiakasString() + "\n");
                 }
                 sb.Append($"\n\n\n*** Tilaus yhteensä : {kokonaisHinta} ***\n");
@@ -411,6 +411,11 @@ namespace NayttoProjekti
                 {
                     Myynti m = (Myynti)Convert.ChangeType(lista.ElementAt(indeksi), conversionType: typeof(Myynti));
                     RemoveTilaus(m.TilausId);
+                    foreach (Tuote t in m.TilatutTuotteet)
+                    {
+                        int index = tuotteet.IndexOf(t);
+                        tuotteet[index].Saldo += t.Saldo;
+                    }
                 }
                 lista.RemoveAt(indeksi);
             }

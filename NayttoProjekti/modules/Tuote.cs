@@ -41,7 +41,6 @@ namespace NayttoProjekti
             this.era = era;
             counter++;
         }
-        public int Maara { get => saldo; }
         public decimal HintaUlos { get => hinta_ulos; }
         public string Nimi { get => nimi; }
         public Tuote(Tuote t)
@@ -73,7 +72,6 @@ namespace NayttoProjekti
                 counter = id + 1;
         }
 
-        //Serialization function.
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
             info.AddValue("Id", this.id);
@@ -96,7 +94,17 @@ namespace NayttoProjekti
             return "[" + id + " | " + nimi + " | Erä: " + era.Era_Numero + "] " + "Määrä: " + saldo + " Hinta/me: " + @hinta_ulos.ToString("C", CultureInfo.GetCultureInfo("fi-FI")) + " Yhteensä: " + saldo*hinta_ulos;
         }
 
-        
+        public override bool Equals(object obj)
+        {
+            return obj is Tuote tuote &&
+                   id == tuote.id &&
+                   nimi == tuote.nimi;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(id, nimi);
+        }
     }
 
 }

@@ -36,7 +36,6 @@ namespace NayttoProjekti
                 counter = era_numero + 1;
         }
 
-        //Serialization function.
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
             info.AddValue("Id", this.era_numero);
