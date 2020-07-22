@@ -1,4 +1,4 @@
-#Varastonhallintasovellus - Careeria Ohjelmoinnin perusteet C#
+Varastonhallintasovellus - Careeria Ohjelmoinnin perusteet C#
 ========================
 
 Sovelluksen toiminta perustuu tekstipohjaiseen käyttöliittymään joka kyselee käyttäjältä mihin moduuliin siirrytään työskentelemään ja moduulien sisällä taas kysellään mitä toimintoja käytetään.
@@ -7,7 +7,7 @@ Sovelluksessa voidaan lisätä, poistaa ja listata tuotteita varastossa, sekä s
 
 Käyttöliittymä toimii pyyhkimällä konsolin jokaisen toiminnon laukaisemisen yhteydessä ja listaa käytettävissä olevat toiminnot tai moduulit käyttäjälle, pitäen näin käyttöliittymän siistinä.
 
-Käytössä olevat moduulit ovat:
+## Käytössä olevat moduulit ovat:
 * Varasto - Varastonhallinta
 	* Tuotteiden listaus
 	* Tuotteen lisääminen
